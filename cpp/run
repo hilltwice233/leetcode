@@ -1,0 +1,37 @@
+source_code_ext=cc
+
+# Get file name from the prefix number.
+function get_file_name() {
+  names=($(ls $1.*.$source_code_ext))
+  echo ${names[0]}
+}
+
+# It will try clang, then if clang not found, it will try gcc.
+# msvc is not supported by current script yet.
+#
+# Attention its parameters:
+# 1. the first parameter is the input source file,
+# 2. the second parameter is the output target file.
+function compile() {
+  clang_version=$(clang --version)
+  if [ $? = 0 ]; then
+    echo "compile using clang:\n$clang_version"
+    return $(clang++ $1 -o $2)
+  else
+    gcc_version=$(gcc --version)
+    if [ $? = 0 ]; then
+      echo clang not found
+      return $(g++ $1 -o $2)
+    else
+      echo cannot find clang or gcc compiler
+      return 1
+    fi
+  fi
+}
+
+source_file=$(get_file_name $1)
+target_file="$(sed 's/\.[^.]*$//' <<<$source_file).exe"
+compile $source_file $target_file
+echo
+if [ $? = 0 ]; then ./$target_file; else echo compilation failed; fi
+echo
