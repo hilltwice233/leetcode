@@ -22,5 +22,5 @@
   "C_Cpp.clang_format_fallbackStyle": "LLVM",
 
   "cSpell.enableFiletypes": ["*"],
-  "cSpell.words": ["hilltwice"]
+  "cSpell.words": ["hilltwice", "leetcode"]
 }
