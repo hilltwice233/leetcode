@@ -1,3 +1,8 @@
+function dim() { echo "\033[90m$1\033[0m"; }
+function red() { echo "\033[91m$1\033[0m"; }
+function yellow() { echo "\033[93m$1\033[0m"; }
+function cyan() { echo "\033[96m$1\033[0m"; }
+
 source_code_ext=cc
 
 # Get file name from the prefix number.
@@ -13,17 +18,18 @@ function get_file_name() {
 # 1. the first parameter is the input source file,
 # 2. the second parameter is the output target file.
 function compile() {
-  clang_version=$(clang --version)
+  clang_version=$(clang++ --version)
   if [ $? = 0 ]; then
-    echo "compile using clang:\n$clang_version"
+    echo "$(cyan "compile using clang++:")\n$(dim "$clang_version")"
     return $(clang++ $1 -o $2)
   else
-    gcc_version=$(gcc --version)
+    gcc_version=$(g++ --version)
     if [ $? = 0 ]; then
-      echo clang not found
+      echo $(yellow "clang++ not found, which is recommended.")
+      echo "$(cyan "compile using g++:")\n$(dim "$gcc_version")"
       return $(g++ $1 -o $2)
     else
-      echo cannot find clang or gcc compiler
+      echo $(yellow "cannot find clang++ or g++ compiler")
       return 1
     fi
   fi
@@ -33,5 +39,5 @@ source_file=$(get_file_name $1)
 target_file="$(sed 's/\.[^.]*$//' <<<$source_file).exe"
 compile $source_file $target_file
 echo
-if [ $? = 0 ]; then ./$target_file; else echo compilation failed; fi
+if [ $? = 0 ]; then ./$target_file; else echo $(red "compilation failed"); fi
 echo
