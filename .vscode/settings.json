@@ -10,7 +10,14 @@
     "*.cc": "${capture}.exe"
   },
 
-  "files.associations": {"run": "shellscript"},
+  "files.associations": {
+    ".bashrc": "shellscript",
+    ".zshrc": "shellscript",
+    "config": "properties",
+    "run": "shellscript",
+    "cstring": "cpp",
+    "locale": "cpp"
+  },
 
   // Auto format on save and default formatter.
   "editor.formatOnSave": true,

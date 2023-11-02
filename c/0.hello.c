@@ -1,6 +1,7 @@
+#include "shared/color.h"
 #include <stdio.h>
 
 int main() {
-  printf("hello\n");
+  printf("%s\n", cyan("hello"));
   return 0;
 }
