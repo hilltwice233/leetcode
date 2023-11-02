@@ -21,13 +21,13 @@ function compile() {
   clang_version=$(clang++ --version)
   if [ $? = 0 ]; then
     echo "$(cyan "compile using clang++:")\n$(dim "$clang_version")"
-    return $(clang++ $1 -o $2)
+    return $(clang++ --std=c++17 $1 -o $2)
   else
     gcc_version=$(g++ --version)
     if [ $? = 0 ]; then
       echo $(yellow "clang++ not found, which is recommended.")
       echo "$(cyan "compile using g++:")\n$(dim "$gcc_version")"
-      return $(g++ $1 -o $2)
+      return $(g++ --std=c++17 $1 -o $2)
     else
       echo $(yellow "cannot find clang++ or g++ compiler")
       return 1
