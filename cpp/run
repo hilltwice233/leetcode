@@ -17,17 +17,24 @@ function get_file_name() {
 # Attention its parameters:
 # 1. the first parameter is the input source file,
 # 2. the second parameter is the output target file.
+# 3. the following parameters are the other included path.
 function compile() {
+  src=$1
+  out=$2
+  shift
+  shift
+
   clang_version=$(clang++ --version)
   if [ $? = 0 ]; then
     echo "$(cyan "compile using clang++:")\n$(dim "$clang_version")"
-    return $(clang++ --std=c++17 $1 -o $2)
+    echo "$@"
+    return $(clang++ --std=c++17 $src -o $out "$@")
   else
     gcc_version=$(g++ --version)
     if [ $? = 0 ]; then
       echo $(yellow "clang++ not found, which is recommended.")
       echo "$(cyan "compile using g++:")\n$(dim "$gcc_version")"
-      return $(g++ --std=c++17 $1 -o $2)
+      return $(g++ --std=c++17 $src -o $out "$@")
     else
       echo $(yellow "cannot find clang++ or g++ compiler")
       return 1
@@ -37,7 +44,7 @@ function compile() {
 
 source_file=$(get_file_name $1)
 target_file="$(sed 's/\.[^.]*$//' <<<$source_file).exe"
-compile $source_file $target_file
+compile $source_file $target_file ./shared/*.cc
 echo
 if [ $? = 0 ]; then ./$target_file; else echo $(red "compilation failed"); fi
 echo
