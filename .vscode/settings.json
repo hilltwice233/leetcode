@@ -5,5 +5,11 @@
   // Auto format on save and default formatter.
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {"source.organizeImports": true},
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.semanticHighlighting.enabled": true,
+
+  // C/C++ formatter options.
+  "[c]": {"editor.defaultFormatter": "ms-vscode.cpptools"},
+  "[cpp]": {"editor.defaultFormatter": "ms-vscode.cpptools"},
+  "C_Cpp.clang_format_fallbackStyle": "LLVM"
 }
