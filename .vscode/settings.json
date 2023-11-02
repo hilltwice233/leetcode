@@ -2,6 +2,8 @@
   "files.encoding": "utf8",
   "files.eol": "\n",
 
+  "files.associations": {"run": "shellscript"},
+
   // Auto format on save and default formatter.
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {"source.organizeImports": true},
