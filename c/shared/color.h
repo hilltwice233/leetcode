@@ -1,5 +1,5 @@
-#ifndef _COLOR_H
-#define _COLOR_H
+#ifndef __color_h
+#define __color_h
 
 char *dim(char *raw);
 char *red(char *raw);
