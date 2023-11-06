@@ -18,9 +18,7 @@
     ".bashrc": "shellscript",
     ".zshrc": "shellscript",
     "config": "properties",
-    "run": "shellscript",
-    "cstring": "cpp",
-    "locale": "cpp"
+    "run": "shellscript"
   },
 
   // Auto format on save and default formatter.
