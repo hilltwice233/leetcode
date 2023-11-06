@@ -18,7 +18,8 @@
     ".bashrc": "shellscript",
     ".zshrc": "shellscript",
     "config": "properties",
-    "run": "shellscript"
+    "run": "shellscript",
+    "iosfwd": "cpp"
   },
 
   // Auto format on save and default formatter.
@@ -30,7 +31,7 @@
   // C/C++ formatter and compiler options.
   "[c]": {"editor.defaultFormatter": "ms-vscode.cpptools"},
   "[cpp]": {"editor.defaultFormatter": "ms-vscode.cpptools"},
-  "C_Cpp.clang_format_fallbackStyle": "LLVM",
+  "C_Cpp.clang_format_fallbackStyle": "Google",
   "C_Cpp.default.cStandard": "c17",
   "C_Cpp.default.cppStandard": "c++17",
 
