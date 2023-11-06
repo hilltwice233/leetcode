@@ -10,7 +10,8 @@
     "*.h": "${capture}.c, ${capture}.cc",
     "*.c": "${capture}.exe",
     "*.cc": "${capture}.exe",
-    "Cargo.toml": "Cargo.lock"
+    "Cargo.toml": "Cargo.lock",
+    "readme.md": "license.txt"
   },
 
   "files.associations": {
