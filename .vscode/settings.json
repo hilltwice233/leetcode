@@ -18,8 +18,7 @@
     ".bashrc": "shellscript",
     ".zshrc": "shellscript",
     "config": "properties",
-    "run": "shellscript",
-    "iosfwd": "cpp"
+    "run": "shellscript"
   },
 
   // Auto format on save and default formatter.

@@ -1,12 +1,15 @@
-#include "shared/color.h"
 #include <chrono>
 #include <iostream>
+// #include <ratio>
 #include <sstream>
+
+#include "shared/color.h"
+#include "shared/test.h"
 
 using namespace std;
 
 class Solution {
-public:
+ public:
   vector<int> twoSum(vector<int> &nums, int target) {
     for (int i = 0; i < nums.size(); i++) {
       for (int j = i + 1; j < nums.size(); j++) {
@@ -22,8 +25,7 @@ public:
     const auto start = chrono::high_resolution_clock::now();
     assert(twoSum(nums, target) == expect);
     const auto end = chrono::high_resolution_clock::now();
-    const auto duration = end - start;
-    cout << dim("test " + name + " takes " + to_string(duration.count()))
+    cout << dim("test " + name + " takes: " + format_duration(end - start))
          << endl;
   }
 };
