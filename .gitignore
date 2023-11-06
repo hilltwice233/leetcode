@@ -1,2 +1,6 @@
 # Compilation output files.
 *.exe
+
+# Cargo dependencies and lockfile.
+target/
+Cargo.lock

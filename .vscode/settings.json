@@ -1,13 +1,16 @@
 {
   "files.encoding": "utf8",
   "files.eol": "\n",
+  "editor.tabSize": 2,
+  "editor.useTabStops": true,
 
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
     "*.h": "${capture}.c, ${capture}.cc",
     "*.c": "${capture}.exe",
-    "*.cc": "${capture}.exe"
+    "*.cc": "${capture}.exe",
+    "Cargo.toml": "Cargo.lock"
   },
 
   "files.associations": {
@@ -29,6 +32,12 @@
   "[c]": {"editor.defaultFormatter": "ms-vscode.cpptools"},
   "[cpp]": {"editor.defaultFormatter": "ms-vscode.cpptools"},
   "C_Cpp.clang_format_fallbackStyle": "LLVM",
+
+  // Rust formatter options.
+  "[rust]": {
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
 
   "cSpell.enableFiletypes": ["*"],
   "cSpell.words": ["hilltwice", "leetcode", "msvc"]
